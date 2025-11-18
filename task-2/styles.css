@@ -1,0 +1,122 @@
+:root{
+  --accent: #4caf50;
+  --muted: #666;
+  --bg: #f5f7fb;
+  --card-bg: #fff;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:#222;
+}
+
+/* Header (Flexbox) */
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+  background:var(--accent);
+  color:white;
+}
+.logo{font-weight:700}
+.nav{display:flex;gap:12px}
+.nav-link{color:white;text-decoration:none;padding:6px 8px;border-radius:6px}
+.nav-link:hover{background:rgba(255,255,255,0.12)}
+
+/* Responsive Grid main area */
+.grid-container{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:20px;
+  padding:20px;
+}
+.card{
+  background:var(--card-bg);
+  padding:18px;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(20,20,20,0.06);
+}
+
+/* Shared container for forms/pages */
+.container{
+  padding:20px;
+  display:flex;
+  justify-content:center;
+}
+.form-card{
+  width:100%;
+  max-width:900px;
+  background:var(--card-bg);
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(20,20,20,0.06);
+}
+
+/* Forms */
+.form{display:block}
+.form label{display:block;margin:10px 0 6px;font-weight:600}
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="tel"],
+.form textarea{
+  width:100%;
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:6px;
+  font-size:14px;
+}
+
+/* Two column layout inside form */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.checkbox-row{display:flex;align-items:center;gap:8px;margin:12px 0}
+
+.form-row{margin-top:14px;display:flex;gap:10px}
+.btn{
+  background:var(--accent);
+  border:none;
+  color:white;
+  padding:10px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+.btn-secondary{background:#777;color:white}
+.btn:hover{opacity:0.95}
+
+.form-msg{margin-top:10px;color:var(--muted)}
+/* Modal */
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0.48);padding:20px;
+}
+.modal[aria-hidden="false"]{display:flex}
+.modal-content{
+  background:var(--card-bg);padding:18px;border-radius:10px;max-width:560px;width:100%;
+}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+#modalPreview{white-space:pre-wrap;background:#f7f7f7;padding:12px;border-radius:6px;border:1px dashed #e0e0e0}
+
+/* To-do list */
+.todo-list{list-style:none;padding:0;margin:12px 0}
+.todo-list li{
+  display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:6px;margin-bottom:8px;
+  background:#fafafa;border:1px solid #eee;
+}
+.todo-left{display:flex;gap:10px;align-items:center}
+.todo-left input[type="checkbox"]{width:18px;height:18px}
+.todo-text{max-width:70%}
+.todo-text.completed{text-decoration:line-through;color:#999}
+
+/* Responsive */
+@media (max-width:1000px){
+  .grid-container{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:700px){
+  .grid-container{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .nav{gap:6px;flex-wrap:wrap}
+}

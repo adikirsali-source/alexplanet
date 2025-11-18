@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Form Submission</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">MyWebsite</div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="form.html" class="nav-link">Form</a>
+      <a href="todo.html" class="nav-link">To-Do App</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="form-card">
+      <h1>Form Submission</h1>
+      <p>An extended form with phone, subject, and checkbox consent.</p>
+
+      <form id="advancedForm" class="form" novalidate>
+        <div class="two-col">
+          <div>
+            <label for="a-name">Full Name *</label>
+            <input id="a-name" name="name" type="text" placeholder="Full name" required />
+          </div>
+          <div>
+            <label for="a-phone">Phone</label>
+            <input id="a-phone" name="phone" type="tel" placeholder="+91-XXXXXXXXXX" pattern="^\+?\d{7,15}$" />
+          </div>
+        </div>
+
+        <label for="a-email">Email *</label>
+        <input id="a-email" name="email" type="email" placeholder="you@example.com" required />
+
+        <label for="a-subject">Subject *</label>
+        <input id="a-subject" name="subject" type="text" placeholder="Subject" required />
+
+        <label for="a-message">Message *</label>
+        <textarea id="a-message" name="message" rows="6" placeholder="Tell us more..." required></textarea>
+
+        <div class="checkbox-row">
+          <input id="consent" name="consent" type="checkbox" required />
+          <label for="consent">I agree to be contacted regarding my query *</label>
+        </div>
+
+        <div class="form-row">
+          <button type="submit" class="btn">Submit</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+
+        <p id="advancedFormMsg" class="form-msg" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

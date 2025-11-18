@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To-Do App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">MyWebsite</div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="form.html" class="nav-link">Form</a>
+      <a href="todo.html" class="nav-link">To-Do App</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="form-card">
+      <h1>To-Do List</h1>
+      <p>Add tasks, mark complete, delete.</p>
+
+      <form id="todoForm" class="form">
+        <input id="todoInput" type="text" placeholder="Add a new task..." required />
+        <button type="submit" class="btn" style="margin: 5px;">Add</button>
+      </form>
+
+      <ul id="todoList" class="todo-list"></ul>
+      <div class="form-row">
+        <button id="clearCompleted" class="btn btn-secondary">Clear Completed</button>
+        <button id="clearAll" class="btn btn-secondary">Clear All</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
