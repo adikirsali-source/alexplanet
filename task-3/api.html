@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fetch API Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">MyWebsite</div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="quiz.html" class="nav-link">Interactive Quiz</a>
+      <a href="carousel.html" class="nav-link">Image Carousel</a>
+      <a href="api.html" class="nav-link">API Fetch (Joke)</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="form-card">
+      <h1>Fetch Data from an API</h1>
+      <p>Click the button to fetch a random joke from a public API and display it.</p>
+
+      <div id="apiArea">
+        <button id="fetchJoke" class="btn">Get a Random Joke</button>
+        <div id="jokeDisplay" class="api-output" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

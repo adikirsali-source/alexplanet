@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Interactive Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">MyWebsite</div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="quiz.html" class="nav-link">Interactive Quiz</a>
+      <a href="carousel.html" class="nav-link">Image Carousel</a>
+      <a href="api.html" class="nav-link">API Fetch (Joke)</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="form-card quiz-card">
+      <h1>JavaScript Quiz</h1>
+      <div id="quiz">
+        <div id="question" class="question">Question text</div>
+        <div id="choices" class="choices"></div>
+        <div class="form-row">
+          <button id="nextBtn" class="btn">Next</button>
+          <button id="restartBtn" class="btn btn-secondary" style="display:none">Restart</button>
+        </div>
+        <p id="quizMsg" class="form-msg" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
