@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Listing</title>
+
+<style>
+  body {
+    font-family: Arial;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* NAVBAR */
+  .navbar {
+    background: #28a745;
+    padding: 14px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 18px;
+    font-weight: bold;
+  }
+
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 30px;
+    color: #28a745;
+  }
+
+  .container {
+    width: 95%;
+    max-width: 1100px;
+    margin: 25px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+  }
+
+  select {
+    padding: 10px;
+    border: 2px solid #28a745;
+    border-radius: 6px;
+    margin-right: 15px;
+  }
+
+  .filters {
+    margin-bottom: 20px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+  }
+
+  .card {
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ddd;
+    border-left: 4px solid #28a745;
+  }
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .price {
+    color: #28a745;
+    font-weight: bold;
+  }
+
+  .buy-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background: #28a745;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .buy-btn:hover {
+    background: #218838;
+  }
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div>
+    <a href="index.html">Home</a>
+    <a href="todo.html">To-Do</a>
+    <a href="products.html">Products</a>
+  </div>
+</div>
+
+<h2>Product Listing</h2>
+
+<div class="container">
+
+  <div class="filters">
+    <label>
+      Category:
+      <select id="category">
+        <option value="all">All</option>
+        <option value="tech">Tech</option>
+        <option value="accessories">Accessories</option>
+        <option value="audio">Audio</option>
+      </select>
+    </label>
+
+    <label>
+      Sort:
+      <select id="sorter">
+        <option value="none">None</option>
+        <option value="low">Price: Low → High</option>
+        <option value="high">Price: High → Low</option>
+      </select>
+    </label>
+  </div>
+
+  <div id="products" class="products-grid"></div>
+</div>
+
+<script>
+// 100% stable working images (Unsplash)
+let items = [
+  {
+    name:"Mechanical Keyboard",
+    price:2499,
+    category:"tech",
+    img:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600"
+  },
+  {
+    name:"Wireless Mouse",
+    price:799,
+    category:"accessories",
+    img:"https://www.portronics.com/cdn/shop/files/Toad321500X1500Blue1.jpg?v=1699100039?w=300"
+  },
+  {
+    name:"Sony Headphones",
+    price:4999,
+    category:"audio",
+    img:"https://sony.scene7.com/is/image/sonyglobalsolutions/WH1000XM6_Product_intro_12_M?$productIntroPlat?w=600"
+  },
+  {
+    name:"USB-C Hub",
+    price:1299,
+    category:"accessories",
+    img:"https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=600"
+  }
+];
+
+function render() {
+  let cat = document.getElementById("category").value;
+  let sort = document.getElementById("sorter").value;
+
+  let list = [...items];
+
+  if (cat !== "all") list = list.filter(i => i.category === cat);
+
+  if (sort === "low") list.sort((a,b)=>a.price-b.price);
+  if (sort === "high") list.sort((a,b)=>b.price-a.price);
+
+  const box = document.getElementById("products");
+  box.innerHTML = "";
+
+  list.forEach(p => {
+    box.innerHTML += `
+      <div class="card">
+        <img src="${p.img}" alt="">
+        <h3>${p.name}</h3>
+        <p class="price">₹${p.price}</p>
+        <p>Category: ${p.category}</p>
+        <a class="buy-btn" onclick="buy('${p.name}')">Buy</a>
+      </div>
+    `;
+  });
+}
+
+function buy(name) {
+  alert("You selected: " + name + "\nThis is a demo Buy button.");
+}
+
+document.getElementById("category").onchange = render;
+document.getElementById("sorter").onchange = render;
+
+render();
+</script>
+
+</body>
+</html>

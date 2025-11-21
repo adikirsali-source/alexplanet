@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>To-Do App</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* NAVBAR */
+  .navbar {
+    background: #28a745;
+    padding: 14px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 18px;
+    font-weight: bold;
+  }
+
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 25px;
+    color: #28a745;
+  }
+
+  .container {
+    width: 98%;
+    max-width: 800px;
+    margin: 25px auto;
+    background: #fff;
+    padding: 50px;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 10px;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #28a745;
+    border-radius: 6px;
+  }
+
+  button {
+    background: #28a745;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background: #218838;
+  }
+
+  .task {
+    padding: 15px;
+    background: #e9f7ef;
+    margin: 10px 0;
+    border-left: 5px solid #28a745;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .done {
+    text-decoration: line-through;
+    color: #777;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div>
+    <a href="index.html">Home</a>
+    <a href="todo.html">To-Do</a>
+    <a href="products.html">Products</a>
+  </div>
+</div>
+
+<h2>To-Do App</h2>
+
+<div class="container">
+  <input id="taskInput" type="text" placeholder="Enter task...">
+
+  <select id="priority">
+    <option>Low</option>
+    <option>Medium</option>
+    <option>High</option>
+  </select>
+
+  <button onclick="addTask()">Add Task</button>
+
+  <input id="search" type="text" placeholder="Search tasks...">
+
+  <div id="taskList"></div>
+</div>
+
+<script>
+let todos = JSON.parse(localStorage.getItem("todo_app_v2")) || [];
+
+function showTasks() {
+  const list = document.getElementById("taskList");
+  const query = document.getElementById("search").value.toLowerCase();
+
+  list.innerHTML = "";
+
+  todos
+    .filter(t => t.text.toLowerCase().includes(query))
+    .forEach(t => {
+      list.innerHTML += `
+        <div class="task">
+          <div>
+            <strong class="${t.done ? 'done' : ''}">${t.text}</strong><br>
+            <small>Priority: ${t.priority}</small>
+          </div>
+
+          <div>
+            <button onclick="toggleDone(${t.id})">✔</button>
+            <button onclick="deleteTask(${t.id})">Delete</button>
+          </div>
+        </div>
+      `;
+    });
+}
+
+function addTask() {
+  const text = document.getElementById("taskInput").value.trim();
+  const priority = document.getElementById("priority").value;
+  if (!text) return;
+
+  todos.push({ 
+    id: Date.now(), 
+    text, 
+    priority,
+    done: false 
+  });
+
+  save();
+}
+
+function deleteTask(id) {
+  todos = todos.filter(t => t.id !== id);
+  save();
+}
+
+function toggleDone(id) {
+  todos = todos.map(t => 
+    t.id === id ? {...t, done: !t.done} : t
+  );
+  save();
+}
+
+function save() {
+  localStorage.setItem("todo_app_v2", JSON.stringify(todos));
+  document.getElementById("taskInput").value = "";
+  showTasks();
+}
+
+document.getElementById("search").addEventListener("input", showTasks);
+showTasks();
+</script>
+
+</body>
+</html>
