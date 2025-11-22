@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Post | Lavender Dark Blog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">LavenderBlog</div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="bookmarks.html">Bookmarks</a>
+    <a href="create.html">Write</a>
+  </div>
+</div>
+
+<div class="post-container">
+
+  <!-- TITLE -->
+  <h1 id="post-title" class="article-title"></h1>
+
+  <!-- META -->
+  <p class="meta">
+    <span id="post-date"></span> • 
+    <span id="post-read"></span>
+  </p>
+
+  <!-- BOOKMARK BUTTON -->
+  <div id="bookmarkBtn" class="bookmark-btn" onclick="toggleBookmark()">
+    ❤️
+  </div>
+
+  <!-- IMAGE -->
+  <img id="post-img" class="cover-img">
+
+  <!-- ARTICLE BODY -->
+  <p id="post-body" class="article-body"></p>
+
+  <!-- AUTHOR SECTION -->
+  <div class="author-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" class="author-img">
+    <div class="author-info">
+      <h3>Aditya Kirsali</h3>
+      <p>B.Tech student passionate about Machine Learning and Web Development.</p>
+      <a href="author.html" style="color:#a020f0">View Profile →</a>
+    </div>
+  </div>
+
+  <!-- SHARE BUTTON -->
+  <div class="share-box">
+    <div class="share-btn" onclick="toggleShare()">Share Post ↗</div>
+    <div id="sharePopup" class="share-popup">
+      <a onclick="copyLink()">Copy Link</a>
+      <a id="waShare">WhatsApp</a>
+      <a id="twShare">Twitter</a>
+      <a id="fbShare">Facebook</a>
+      <a id="lnShare">LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- COMMENTS -->
+  <h2 class="comments-title">Comments</h2>
+
+  <input id="commentName" class="comment-input" placeholder="Your name">
+  <textarea id="commentText" class="comment-input" placeholder="Write a comment..."></textarea>
+  <button onclick="addComment()">Post Comment</button>
+
+  <div id="commentsList"></div>
+
+</div>
+
+<script src="app.js"></script>
+<script>
+  loadPost();
+  loadComments();
+  updateBookmarkState();
+  prepareShareButtons();
+</script>
+
+</body>
+</html>

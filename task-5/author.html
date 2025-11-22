@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Author | Lavender Dark Blog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="logo">LavenderBlog</div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="bookmarks.html">Bookmarks</a>
+    <a href="create.html">Write</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="author-box" style="margin-top: 20px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" class="author-img">
+    <div class="author-info">
+      <h2 style="font-size:28px;">Aditya Kirsali</h2>
+      <p>B.Tech student passionate about Machine Learning and Web Development.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Posts by Aditya</h2>
+
+  <div id="authorPosts"></div>
+
+</div>
+
+<script src="app.js"></script>
+<script>
+  loadAuthorPosts();
+</script>
+
+</body>
+</html>

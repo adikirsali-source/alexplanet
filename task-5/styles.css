@@ -1,0 +1,352 @@
+/* ---------------------------------------
+   GLOBAL RESET + DARK THEME
+----------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ---------------------------------------
+   NAVBAR
+----------------------------------------*/
+.navbar {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0d0d0d;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #1a1a1a;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #a020f0, #ff4dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar a {
+  margin-left: 24px;
+  opacity: 0.7;
+}
+
+.navbar a:hover {
+  opacity: 1;
+  color: #a020f0;
+}
+
+/* ---------------------------------------
+   MAIN CONTAINER
+----------------------------------------*/
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: 50px auto;
+}
+
+/* ---------------------------------------
+   SEARCH
+----------------------------------------*/
+.search-box {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #1d1d1d;
+  background: #0d0d0d;
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+.search-box:focus {
+  border-color: #a020f0;
+  outline: none;
+}
+
+/* ---------------------------------------
+   FEATURED ARTICLE
+----------------------------------------*/
+.featured {
+  display: flex;
+  background: #0d0d0d;
+  border-radius: 28px;
+  padding: 40px;
+  gap: 40px;
+  box-shadow: 0 0 40px rgba(160, 32, 240, 0.18);
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.featured-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.featured-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.featured-excerpt {
+  opacity: 0.75;
+  margin: 10px 0 20px;
+}
+
+.featured-meta {
+  color: #a020f0;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.featured-img {
+  width: 46%;
+  min-width: 320px;
+  border-radius: 26px;
+  object-fit: cover;
+  box-shadow: 0 0 25px rgba(160, 32, 240, 0.25);
+}
+
+/* ---------------------------------------
+   LATEST POST LIST
+----------------------------------------*/
+.section-title {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #a020f0;
+}
+
+.post {
+  padding: 25px 0;
+  border-bottom: 1px solid #1b1b1b;
+  transition: 0.25s ease;
+}
+
+.post:hover {
+  background: rgba(160, 32, 240, 0.1);
+  padding-left: 10px;
+  border-radius: 14px;
+}
+
+.post h2 {
+  font-size: 22px;
+}
+
+.post p {
+  opacity: 0.75;
+  margin: 8px 0;
+}
+
+.post small {
+  opacity: 0.55;
+}
+
+/* ---------------------------------------
+   BOOKMARK ICON
+----------------------------------------*/
+.bookmark-btn {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.4;
+  transition: 0.2s;
+}
+
+.bookmark-btn.active {
+  color: #a020f0;
+  opacity: 1;
+  text-shadow: 0 0 10px #a020f0;
+}
+
+.bookmark-btn:hover {
+  opacity: 1;
+}
+
+/* ---------------------------------------
+   AUTHOR BOX
+----------------------------------------*/
+.author-box {
+  display: flex;
+  align-items: center;
+  background: #0d0d0d;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 40px 0;
+  gap: 20px;
+  border: 1px solid #1a1a1a;
+}
+
+.author-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #a020f0;
+  padding: 4px;
+  box-shadow: 0 0 10px #a020f0;
+  object-fit: cover;
+}
+
+.author-info h3 {
+  font-size: 20px;
+}
+
+.author-info p {
+  opacity: 0.7;
+}
+
+/* ---------------------------------------
+   SHARE POPUP
+----------------------------------------*/
+.share-box {
+  margin: 20px 0;
+}
+
+.share-btn {
+  padding: 10px 18px;
+  background: #a020f0;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.share-popup {
+  background: #111;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(160, 32, 240, 0.25);
+  display: none;
+}
+
+.share-popup a {
+  display: block;
+  padding: 6px 0;
+  opacity: 0.8;
+}
+
+.share-popup a:hover {
+  opacity: 1;
+  color: #a020f0;
+}
+
+/* ---------------------------------------
+   COMMENTS SECTION
+----------------------------------------*/
+.comments-title {
+  font-size: 26px;
+  color: #a020f0;
+  margin-top: 40px;
+}
+
+.comment-box {
+  margin-top: 20px;
+}
+
+.comment-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #1d1d1d;
+  background: #0d0d0d;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.comment-input:focus {
+  border-color: #a020f0;
+  outline: none;
+}
+
+.comment-item {
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 10px 0;
+}
+
+.comment-item small {
+  opacity: 0.6;
+}
+
+.delete-comment {
+  float: right;
+  color: #ff4d88;
+  cursor: pointer;
+}
+
+/* ---------------------------------------
+   CREATE PAGE
+----------------------------------------*/
+.input {
+  width: 100%;
+  padding: 12px;
+  background: #0d0d0d;
+  border: 2px solid #1a1a1a;
+  border-radius: 12px;
+  color: white;
+  margin: 20px 0;
+}
+
+.input:focus {
+  border-color: #a020f0;
+}
+
+.textarea {
+  height: 220px;
+}
+
+button {
+  padding: 12px 24px;
+  background: #a020f0;
+  color: white;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #b729ff;
+}
+
+/* ---------------------------------------
+   RESPONSIVE
+----------------------------------------*/
+@media (max-width: 800px) {
+  .featured {
+    flex-direction: column;
+    padding: 25px;
+  }
+  .featured-img {
+    width: 100%;
+  }
+}
+
+.cover-img {
+  width: 100%;
+  max-width: 900px;        /* prevents full screen overflow */
+  height: 360px;           /* aesthetic hero size */
+  object-fit: cover;
+  border-radius: 20px;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 0 35px rgba(160, 32, 240, 0.25);
+}

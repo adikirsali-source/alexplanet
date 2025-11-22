@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Blog | Lavender Dark Blog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">LavenderBlog</div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="bookmarks.html">Bookmarks</a>
+    <a href="create.html">Write</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <h1 class="article-title">Write a New Post</h1>
+
+  <input id="title" class="input" placeholder="Post Title">
+
+  <input id="image" class="input" placeholder="Cover Image URL (optional)">
+
+  <textarea id="body" class="input textarea" placeholder="Start writing your blog..."></textarea>
+
+  <button onclick="createPost()">Publish</button>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
